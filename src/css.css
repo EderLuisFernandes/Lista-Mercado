@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #333;
+  overflow-x: hidden;
+}
+::--webkit--scrool {
+  background: transparent;
+}
+
+body {
+  background: url(./img/—Pngtree—summer\ atmosphere\ restaurant\ supermarket\ vegetable_1098004.jpg)
+    no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 0 1rem 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+header > .h1 > h1 {
+  font-size: 1.4rem;
+}
+.h1 {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.total {
+  display: block;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 10px;
+}
+#TotalBtn i {
+  font-size: 25px;
+}
+#app {
+  position: relative;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  background-color: rgba(253, 253, 253, 0.5);
+  backdrop-filter: blur(30px);
+  border-radius: 30px;
+  width: 344px;
+  overflow-y: scroll;
+}
+#app::-webkit-scrollbar {
+  width: 2px;
+}
+
+#app::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#app::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+}
+button {
+  background: none;
+  color: #102f5e;
+  border: 1px solid #102f5e;
+  font-size: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  border: none;
+}
+button i {
+  color: #102f5e;
+  font-weight: bolder;
+  pointer-events: none;
+  font-size: 1rem;
+  /* background: #fff; */
+}
+
+#todo-form {
+  display: flex;
+}
+
+input {
+  width: 80px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+label {
+  font-weight: bolder;
+
+  margin-bottom: 10px;
+}
+#todo-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  margin-top: 10px;
+}
+#todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.todo-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+#app #addbtn {
+  margin-top: 17px;
+}
+.swal2-backdrop-custom {
+  background-color: rgba(0, 0, 123, 0.4);
+}
+.tabela {
+  display: flex;
+  gap: 17px;
+  font-weight: bolder;
+  margin-left: 7px;
+}
+
+.unit {
+  margin-left: 14px;
+}
+.total-prodt {
+  margin-left: 27px;
+}
+@media screen and (max-width: 870px) {
+  #app {
+    height: 700px;
+    margin-top: 113px;
+  }
+}
+@media screen and (max-width: 804px) {
+  #app {
+    height: 600px;
+    margin-top: 169px;
+  }
+
+  .und {
+    margin-left: 2px;
+  }
+}

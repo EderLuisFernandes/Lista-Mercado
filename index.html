@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Lista de Compras</title>
+    <link rel="stylesheet" href="./src/css.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="h1">
+                <h1>Lista - Mercado</h1>
+                <button id="TotalBtn"><i class="fa fa-eye"></i></button>
+            </div>
+
+
+            <div class="total" id="total">Total Geral: R$ 0.00</div>
+
+
+
+        </header>
+        <form id="todo-form">
+            <div>
+                <label for="todo-name"> Produto</label>
+                <input type="text" id="todo-name">
+            </div>
+            <div>
+                <label for="todo-quantity">Qtd</label>
+                <input type="number" id="todo-quantity" min="1">
+            </div>
+            <div>
+                <label for="todo-value">Valor </label>
+                <input type="number" id="todo-value" min="0.01" step="0.01">
+            </div>
+
+            <button id="addbtn" type="submit"> <i class="fa fa-thin fa-plus"></i></button>
+        </form>
+        <br>
+        <div class="tabela">
+            <p>Item</p>
+            <p class="und">Und</p>
+            <p class="unit">Unit</p>
+            <p class="total-prodt">Total</p>
+
+        </div>
+        <ul id="todo-list"></ul>
+
+
+
+
+    </div>
+    <script src="./src/js.js">
+    </script>
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+"></script>
+
+
+</body>
+
+</html>
