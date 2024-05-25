@@ -4,6 +4,26 @@ const totalDisplay = document.getElementById("total");
 const aparecertotal = document.querySelector("#TotalBtn");
 
 let productList = [];
+let selectedCurrency = localStorage.getItem('selectedCurrency') || 'BRL';
+let exchangeRate = 0;
+
+
+
+const fetchExchangeRate = async () => {
+  try {
+    const response = await fetch('https://api.exchangerate-api.com/v4/latest/BRL');  // Replace with your API endpoint
+    const data = await response.json();
+    exchangeRate = data.rates.EUR;  // Assuming you want BRL to EUR rate
+    renderizarLista();  // Re-render the list with the updated exchange rate
+  } catch (error) {
+    console.error('Error fetching exchange rate:', error);
+  }
+};
+
+// Fetch exchange rate when the page loads
+fetchExchangeRate();
+
+
 
 function renderizarLista() {
   todoList.innerHTML = "";
@@ -19,10 +39,15 @@ function renderizarLista() {
     const quantityDisplay = isNaN(product.quantity) ? "" : product.quantity;
     const valueDisplay = isNaN(product.value)
       ? ""
-      : `R$ ${product.value.toFixed(2)}`;
+      : selectedCurrency === "BRL" ?
+      `R$ ${product.value.toFixed(2)}`:
+      `€  ${(product.value).toFixed(2)}`
+      ;
     const totalDisplay = isNaN(totalProduto)
       ? ""
-      : `R$ ${totalProduto.toFixed(2)}`;
+      : selectedCurrency === "BRL" ? 
+      `R$ ${totalProduto.toFixed(2)}`:
+      `€  ${totalProduto.toFixed(2)}`;
 
     item.innerHTML = `
             <strong>${product.name}</strong>
@@ -36,8 +61,10 @@ function renderizarLista() {
         `;
     todoList.appendChild(item);
   });
-
-  totalDisplay.textContent = `Total Geral: R$ ${totalGeral.toFixed(2)}`;
+  const displayTotal = selectedCurrency === "BRL" ?
+  `Total Geral: R$ ${totalGeral.toFixed(2)}` :
+  `Total Geral: € ${totalGeral.toFixed(2)}`;
+totalDisplay.textContent = displayTotal;
 }
 
 function saveLocalS() {
@@ -123,5 +150,24 @@ aparecertotal.addEventListener("click", () => {
   } else {
     totalDisplay.style.display = "block";
     aparecertotal.innerHTML = '<i class="fa fa-eye"></i>';
+  }
+});
+
+document.querySelectorAll(".currency-img").forEach((img) => {
+  img.addEventListener("click", (event) => {
+    document
+      .querySelectorAll(".currency-img")
+      .forEach((img) => img.classList.remove("selected"));
+    event.target.classList.add("selected");
+    selectedCurrency = event.target.id;
+    localStorage.setItem('selectedCurrency', selectedCurrency);
+    renderizarLista();
+  });
+});
+document.querySelectorAll(".currency-img").forEach((img) => {
+  if (img.id === selectedCurrency) {
+    img.classList.add("selected");
+  } else {
+    img.classList.remove("selected");
   }
 });
